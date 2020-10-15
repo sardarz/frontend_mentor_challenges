@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+    --paleBlue: hsl(243, 100%, 93%);
+    --grayishBlue: hsl(229, 7%, 55%);
+    --darkBlue: hsl(228, 56%, 26%);
+    --veryDarkBlue: hsl(229, 57%, 11%);
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* TYPOGRAPHY */
+body {
+    font-family: Raleway;
+    font-size: 1.4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: var(--veryDarkBlue);
+    background: center / cover no-repeat url('./images/bg-mobile.png');
+    color: var(--paleBlue);
+    line-height: 1.5;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.dark {
+    color: var(--veryDarkBlue);
+    font-size: 5rem;
+}
+
+/* layout */
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+}
+
+
+/* fylo section */
+.fylo {
+    background-color: var(--darkBlue);
+    padding: 3rem;
+    margin: 0 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem 10rem 1rem 1rem;
+}
+
+.fylo__icons {
+    display: flex;
+    align-items: center;
+}
+
+.fylo__icon {
+    background-color: var(--veryDarkBlue);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    transition: all .2s ease-in;
+}
+
+.fylo__icon:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.fylo__icon + .fylo__icon {
+    margin-left: 2rem;
+}
+
+/* storage section */
+
+.storage{
+    background-color: var(--darkBlue);
+    margin: 0 2rem;
+    border-radius: 1rem;
+    padding: 3rem;
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.storage__progress {
+    height: 1.8rem;
+    background-color: var(--veryDarkBlue);
+    width: 100%;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+.storage__bar {
+    display: block;
+    width: 70%;
+    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: 1rem;
+    height: 1.8rem;
+    position: relative;
+    border: 2px solid var(--veryDarkBlue);
+}
+
+.circle {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: white;
+    right: 4px;
+    top: 3px;
+}
+
+.storage__gb {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.storage__left {
+    background-color: white;
+    position: absolute;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    color: var(--grayishBlue);
+    font-weight: 700;
+    transform: translate(0, 120%)
+}
+
+/* Media */
+
+@media (min-width: 1000px) {
+    body {
+        background-image: none;
+        background-color: var(--veryDarkBlue);
+    }
+
+    main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .storage {
+        width: 55rem;
+        justify-content: space-around;
+    }
+
+    .fylo {
+        padding-right: 8rem;
+    }
+
+    .storage > p {
+        width: 100%;
+    }
+
+    .storage__left {
+        transform: translate(80%, -100%);
+    }
+
+    .storage__left::after {
+        content: "";
+        position: absolute;
+        right: 0%;
+        bottom: -20px;
+        border-right: 20px solid white;
+        border-left: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-top: 20px solid transparent;
+    }
+}
